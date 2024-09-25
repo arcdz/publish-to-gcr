@@ -1,7 +1,7 @@
 name: publish
-on: [ push ]
+on: [push]
 jobs:
-publish-hello-docker-image: # the job
+publish-hello-docker-image:
 runs-on: ubuntu-latest
 steps:
   - uses: actions/checkout@v2
@@ -13,6 +13,6 @@ username: ${{ github.actor }}
 password: ${{ secrets.GITHUB_TOKEN }}
   - name: Build the hello-docker Docker image
 run: |
-  docker build . --tag ghcr.io/arcdz/hello-docker-gcr-demo:latest
-  docker run ghcr.io/arcdz/hello-docker-gcr-demo:latest
-  docker push ghcr.io/arcdz/hello-docker-gcr-demo:latest
+  docker build . --tag ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
+  docker run ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
+  docker push ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
