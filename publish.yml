@@ -1,0 +1,39 @@
+#name: Publish Simple NodeJS App
+#on:
+#  [workflow_dispatch]
+#env:
+#  REGISTRY: ghcr.io
+#  IMAGE_NAME: ${{ github.repository }}
+#jobs:
+#  publish_images:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#      - name: Log in to the Container registry
+#        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+#        with:
+#          registry: ${{ env.REGISTRY }}
+#          username: ${{ github.actor }}
+#          password: ${{ secrets.GITHUB_TOKEN }}
+#      - name : build image
+#        run: docker build . --tag andreirotariu/publish-to-gcr:latest
+#      - name: push image to docker hub
+#        run: |
+#          docker push andreirotariu/publish-to-gcr:latest
+##jobs:
+##publish-hello-docker-image:
+##runs-on: ubuntu-latest
+##steps:
+##  - uses: actions/checkout@v2
+##  - name: Login to GitHub Container Registry
+##uses: docker/login-action@v1
+##with:
+##registry: ghcr.io
+##username: ${{ github.actor }}
+##password: ${{ secrets.GITHUB_TOKEN }}
+##  - name: Build the hello-docker Docker image
+##run: |
+##  docker build . --tag ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
+##  docker run ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
+##  docker push ghcr.io/andreirotariu/hello-docker-gcr-demo:latest
